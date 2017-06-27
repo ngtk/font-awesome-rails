@@ -27,11 +27,12 @@ class FontAwesomeRailsTest < ActionDispatch::IntegrationTest
 
   test "stylesheets contain asset pipeline references to fonts" do
     get "/assets/font-awesome.css"
-    assert_match "/assets/fontawesome-webfont.eot",  response.body
-    assert_match "/assets/fontawesome-webfont.eot?#iefix", response.body
-    assert_match "/assets/fontawesome-webfont.woff", response.body
-    assert_match "/assets/fontawesome-webfont.ttf",  response.body
-    assert_match "/assets/fontawesome-webfont.svg#fontawesomeregular", response.body
+    assert_match %r{/assets/fontawesome-webfont(-\w+)?\.eot},  response.body
+    assert_match %r{/assets/fontawesome-webfont(-\w+)?\.eot\?#iefix}, response.body
+    assert_match %r{/assets/fontawesome-webfont(-\w+)?\.woff2}, response.body
+    assert_match %r{/assets/fontawesome-webfont(-\w+)?\.woff}, response.body
+    assert_match %r{/assets/fontawesome-webfont(-\w+)?\.ttf},  response.body
+    assert_match %r{/assets/fontawesome-webfont(-\w+)?\.svg#fontawesomeregular}, response.body
   end
 
   test "stylesheet is available in a css sprockets require" do
