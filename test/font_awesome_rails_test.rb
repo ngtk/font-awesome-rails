@@ -29,7 +29,6 @@ class FontAwesomeRailsTest < ActionDispatch::IntegrationTest
     get "/assets/font-awesome.css"
     assert_match %r{/assets/fontawesome-webfont(-\w+)?\.eot},  response.body
     assert_match %r{/assets/fontawesome-webfont(-\w+)?\.eot\?#iefix}, response.body
-    assert_match %r{/assets/fontawesome-webfont(-\w+)?\.woff2}, response.body
     assert_match %r{/assets/fontawesome-webfont(-\w+)?\.woff}, response.body
     assert_match %r{/assets/fontawesome-webfont(-\w+)?\.ttf},  response.body
     assert_match %r{/assets/fontawesome-webfont(-\w+)?\.svg#fontawesomeregular}, response.body
